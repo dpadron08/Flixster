@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
 
@@ -56,7 +58,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         TextView tvTitle;
         TextView tvOverview;
-        TextView ivPoster;
+        ImageView ivPoster;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,7 +72,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             tvOverview.setText(movie.getOverview());
 
             // android has no way to render remote images natively:
-
+            Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
 
         }
     }
