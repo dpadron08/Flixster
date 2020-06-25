@@ -75,12 +75,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             String imageURL;
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageURL = movie.getBackdropPath();
+                Glide.with(context).load(imageURL).placeholder(R.mipmap.pholderhoriz_foreground).into(ivPoster);
             } else {
                 imageURL = movie.getPosterPath();
+                Glide.with(context).load(imageURL).placeholder(R.mipmap.pholdervert_foreground).into(ivPoster);
             }
 
             // android has no way to render remote images natively:
-            Glide.with(context).load(imageURL).into(ivPoster);
+            //Glide.with(context).load(imageURL).into(ivPoster);
+
+            //Glide.with(context).load(imageURL).into(ivPoster);
 
         }
     }
