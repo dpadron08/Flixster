@@ -15,6 +15,8 @@ import com.example.flixster.models.Movie;
 
 import org.parceler.Parcels;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class MovieDetailsActivity extends AppCompatActivity {
 
     // for step 5, Parcelable, the movie to display
@@ -56,7 +58,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         // get imageURL for this movie
         //imageURL = "https://www.youtube.com/watch?v=" + movie.getKey();
 
-        Glide.with(this).load(movie.getPosterPath()).into(ivTrailerPic);
+        int radius = 60;
+        int margin = 20;
+        Glide.with(this).load(movie.getPosterPath()).transform(new RoundedCornersTransformation(radius, margin)).into(ivTrailerPic);
 
 
         // add onclick listener on this image so that when pressed, moves to MovieTrailerActivity
