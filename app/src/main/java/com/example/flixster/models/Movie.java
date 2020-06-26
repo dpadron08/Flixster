@@ -18,6 +18,8 @@ public class Movie {
 
     Double voteAverage;
 
+    Integer id;
+
     // no arg empty constructor required for parceler
     public Movie() {
 
@@ -29,6 +31,9 @@ public class Movie {
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
         voteAverage = jsonObject.getDouble("vote_average");
+        id = jsonObject.getInt("id");
+
+        //key = jsonObject.getString("key"); // wont work, must make new API call
     }
 
     public static List<Movie> fromJSONArray(JSONArray movieJsonArray) throws JSONException {
@@ -40,7 +45,7 @@ public class Movie {
     }
 
     public String getPosterPath() {
-        // hardocde
+        // hardcode
         return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
     }
 
@@ -58,5 +63,9 @@ public class Movie {
 
     public Double getVoteAverage() {
         return voteAverage;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }
