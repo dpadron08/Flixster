@@ -7,7 +7,7 @@
     android:background="#000000"
     android:backgroundTint="#000000"
     tools:context="com.example.flixster.MovieDetailsActivity">
-    
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
