@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.models.Movie;
 
 import org.parceler.Parcels;
@@ -33,13 +34,23 @@ public class MovieDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_details);
+        // setContentView(R.layout.activity_movie_details); old
+        ActivityMovieDetailsBinding binding = ActivityMovieDetailsBinding.inflate(getLayoutInflater()); // VB
+        View view = binding.getRoot(); // VB
+        setContentView(view); // VB
 
         // resolve the view objects
+        /* OLD
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
         ivTrailerPic = (ImageView) findViewById(R.id.ivTrailerPic);
+         */
+
+        tvTitle = binding.tvTitle; // VB
+        tvOverview = binding.tvOverview; // VB
+        rbVoteAverage = binding.rbVoteAverage; // VB
+        ivTrailerPic = binding.ivTrailerPic; // VB
 
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
